@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  background: $background-color-backup;
+  background: $background-color;
+}
+
+.card {
+  height: 100px;
+  margin: 10px;
+  background: $card-color;
+
+  @include card(3);
+}
+
+.card--input {
+  width: 300px;
+}
+
+.card--ouput {
+  width: 100px;
+}
