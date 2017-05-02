@@ -9,8 +9,10 @@ $font-stack: -apple-system,
               "Helvetica Neue", 
                sans-serif;
 
-$background-color-backup: #41295a; 
-$background-color: linear-gradient(to right, #41295a, #2f0743);
+$background-color-backup: #8813FF; 
+$background-color: linear-gradient(to right, #8813FF, #BC7BFF);
 
 $text-color: #333333;
 $card-color: #FFFFFE;
+
+$input-gradient: linear-gradient(to right, #c21500, #ffc500) 100% 1;

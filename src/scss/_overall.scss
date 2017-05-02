@@ -1,7 +1,6 @@
 .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flex-center;
+
   height: 100vh;
 
   background: $background-color-backup;
@@ -13,13 +12,29 @@
   margin: 10px;
   background: $card-color;
 
+  @include flex-center;
   @include card(3);
 }
 
+.card__form {
+  border: 1px solid $text-color;
+  padding: 10px 0 10px 0;
+  margin: 10px 20px;
+
+  border-width: 0 0 3px 0;
+  border-style: solid;
+  border-image: $input-gradient
+
+}
+
 .card--input {
-  width: 300px;
+  min-width: 300px;
 }
 
 .card--ouput {
   width: 100px;
+}
+
+.emoji {
+  font-size: 60px;
 }
