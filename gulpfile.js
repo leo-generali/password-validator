@@ -4,6 +4,7 @@ var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
 var autoprefixer = require('gulp-autoprefixer');
 var htmlmin = require('gulp-htmlmin');
+var minify = require('gulp-minify');
 
   // folders
   var folder = {
@@ -19,9 +20,26 @@ var htmlmin = require('gulp-htmlmin');
   gulp.task('minify', function() {
     var input = folder.src + 'html/*.html';
     var output = folder.build;
-    return gulp.src( input )
+    return gulp
+      .src( input )
       .pipe( htmlmin( {collapseWhitespace: true}) )
       .pipe( gulp.dest( output ) );
+  });
+
+  gulp.task('compress', function() {
+    var input = folder.src + 'js/*.js';
+    var output = folder.build + 'js';
+    return gulp
+      .src ( input )
+      .pipe(minify({
+        ext: {
+          src:'-debug.js',
+          min:'.js'
+        },
+        exclude: ['tasks'],
+        ignoreFiles: ['.combo.js', '-min.js']
+        }))
+      .pipe( gulp.dest( output ));
   })
 
   gulp.task('sass', function() {
@@ -36,13 +54,19 @@ var htmlmin = require('gulp-htmlmin');
       .pipe( gulp.dest( output ));
   });
 
+
   gulp.task('watch', function() {
-    return gulp
-      .watch( folder.src , ['sass'] )
-      .on('change', function(event) {
+    var inputHtml = folder.src + 'html/*.html';
+    var inputSass = folder.src + 'scss/**/*.scss';
+    var inputJs = folder.src + 'js/*.js';
+    
+    gulp.watch( inputHtml, ['minify'] );
+    gulp.watch( inputJs, ['compress'] );
+    gulp.watch( inputSass, ['sass'] );
+    gulp.on('change', function(event) {
         console.log('File' + event.path + 'was ' + event.type + ', running tasks...') 
       });
   });
 
-  gulp.task('default', ['sass', 'minify','watch']);
+  gulp.task('default', ['minify', 'sass', 'compress', 'watch']);
 ;
