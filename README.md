@@ -3,10 +3,10 @@
 This web application uses DropBox's Zxcvbn plugin to give users immediate feedback on the strength of their passwords. Emojis serve immediate, joyful feedback on user input.
 
 ### To-Do
-- [ ] Set up initial workflow: Gulp & Sass
-- [ ] Styling
-- [ ] Calculate strength of user's password
-- [ ] Change emoji based on password strength
+- [x] Set up initial workflow: Gulp & Sass
+- [x] Styling
+- [x] Calculate strength of user's password
+- [x] Change emoji based on password strength
 - [ ] Further styling refinements to make this enjoyable to use
 
 ### Technologies Used
