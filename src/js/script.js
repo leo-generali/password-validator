@@ -15,44 +15,30 @@
     console.log(passwordScore);
     var emoji = document.querySelector('.emoji');
     var emojiParent = document.querySelector('.card--ouput');
-    var remplacementEmoji;
+    var emojiReplacement;
 
-    if(passwordScore = 0) {
-     remplacementEmoji = badEmoji();
-    }else if(passwordScore = 1) {
-     remplacementEmoji = badMediumEmoji();
-    }else if(passwordScore = 2) {
-     remplacementEmoji = mediumEmoji();
-    }else if(passwordScore = 3) {
-     remplacementEmoji = mediumGoodEmoji();
+    if(passwordScore === 0) {
+     emojiReplacement = '💩';
+    }else if(passwordScore === 1) {
+     emojiReplacement = '🙁';
+    }else if(passwordScore === 2) {
+     emojiReplacement = '😐';
+    }else if(passwordScore === 3) {
+     emojiReplacement = '🙂';
     }else {
-     remplacementEmoji = goodEmoji();
+     emojiReplacement = '😍';
     };
 
     emojiParent.removeChild(emoji);
+    emojiParent.appendChild( createNewEmoji(emojiReplacement) );
 
-    console.log(remplacementEmoji);
-
-    function badEmoji() {
-      return document.createTextNode('💩');
-    }
-
-    function badMediumEmoji() {
-      return document.createTextNode('🙁');
-    }
-
-    function mediumEmoji() {
-      return document.createTextNode('😐');
-    }
-
-    function mediumGoodEmoji() {
-      return document.createTextNode('🙂');
-    }
-
-    function goodEmoji() {
-      return document.createTextNode('😍');
-    }
-    
+    function createNewEmoji(replacement) {
+      var element = document.createElement('span');
+      var text = document.createTextNode(replacement);
+      element.appendChild(text);
+      element.classList.add('emoji');
+      return element;
+    }    
   }
 
 })();

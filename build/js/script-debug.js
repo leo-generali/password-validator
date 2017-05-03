@@ -38,8 +38,7 @@
       element.appendChild(text);
       element.classList.add('emoji');
       return element;
-    }
-    
+    }    
   }
 
 })();
