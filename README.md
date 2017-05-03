@@ -1,5 +1,4 @@
-# Toy Project 001:
-## Password Validator
+# Toy Project 001: Password Validator
 ### About
 This web application uses DropBox's Zxcvbn plugin to give users immediate feedback on the strength of their passwords. Emojis serve immediate, joyful feedback on user input.
 
@@ -10,7 +9,7 @@ This web application uses DropBox's Zxcvbn plugin to give users immediate feedba
 - [ ] Change emoji based on password strength
 - [ ] Further styling refinements to make this enjoyable to use
 
-### Technologies Use
+### Technologies Used
 - Gulp: gulp-sass, gulp-sourcemaps, gulp-autoprefixer, gulp-htmlmin, gulp-minify
 - Sass
 

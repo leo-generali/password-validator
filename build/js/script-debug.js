@@ -1,3 +1,5 @@
-var x = 'hello';
+(function test( ){
+  var password = document.querySelector('.card__form');
 
-console.log(x);
+  console.log(password);
+});
