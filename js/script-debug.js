@@ -15,22 +15,25 @@
     console.log(passwordScore);
     var emoji = document.querySelector('.emoji');
     var emojiParent = document.querySelector('.card--ouput');
-    var emojiReplacement;
+    var emojiReplacement = returnNewEmoji(passwordScore);
 
-    if(passwordScore === 0) {
-     emojiReplacement = '💩';
-    }else if(passwordScore === 1) {
-     emojiReplacement = '🙁';
-    }else if(passwordScore === 2) {
-     emojiReplacement = '😐';
-    }else if(passwordScore === 3) {
-     emojiReplacement = '🙂';
-    }else {
-     emojiReplacement = '😍';
-    };
 
     emojiParent.removeChild(emoji);
     emojiParent.appendChild( createNewEmoji(emojiReplacement) );
+
+    function returnNewEmoji(rating) {
+      if(rating === 0) {
+       return '💩';
+      }else if(rating === 1) {
+       return '🙁';
+      }else if(rating === 2) {
+       return '😐';
+      }else if(rating === 3) {
+       return '🙂';
+      }else {
+       return '😍';
+      };
+    }
 
     function createNewEmoji(replacement) {
       var element = document.createElement('span');
