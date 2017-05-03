@@ -16,10 +16,10 @@
     var emoji = document.querySelector('.emoji');
     var emojiParent = document.querySelector('.card--ouput');
     var emojiReplacement = returnNewEmoji(passwordScore);
-
+    var newEmojiElem = createNewEmoji(emojiReplacement);
 
     emojiParent.removeChild(emoji);
-    emojiParent.appendChild( createNewEmoji(emojiReplacement) );
+    emojiParent.appendChild(newEmojiElem);
 
     function returnNewEmoji(rating) {
       if(rating === 0) {
