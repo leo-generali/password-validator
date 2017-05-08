@@ -7,37 +7,43 @@
     //To-add: Only do this is keypress is an alpha numeric value
     var password = document.querySelector('.card__form').value;
     var result = zxcvbn(password);
-    var length = password.length;
     var score = result.score;
-    changeEmoji(score, length);
+
+    changeEmoji(score, password);
   }
 
-  function changeEmoji(passwordScore, passwordLength) {
+  function changeEmoji(passwordScore, password) {
+    var length = password.length || 0;
+    console.log(length);
     var emoji = document.querySelector('.emoji');
     var emojiParent = document.querySelector('.card--ouput');
-    var emojiReplacement = returnNewEmoji(passwordScore);
+    var emojiReplacement = checkLength(length);
     var newEmojiElem = createNewEmoji(emojiReplacement);
-    console.log(passwordLength);
 
     emojiParent.removeChild(emoji);
     emojiParent.appendChild(newEmojiElem);
 
-    function returnNewEmoji(rating) {
-      if(passwordLength > 0) {
-        if(rating === 0) {
-         return '💩';
-        }else if(rating === 1) {
-         return '🙁';
-        }else if(rating === 2) {
-         return '😐';
-        }else if(rating === 3) {
-         return '🙂';
-        }else {
-         return '😍';
-        }
-      }else{
+    
+    function checkLength(len) {
+      if(len === 0) {
         return '❓';
-      };
+      }else{
+        return returnNewEmoji(passwordScore);
+      }
+    }
+
+    function returnNewEmoji(rating) {
+      if(rating === 0) {
+       return '💩';
+      }else if(rating === 1) {
+       return '🙁';
+      }else if(rating === 2) {
+       return '😐';
+      }else if(rating === 3) {
+       return '🙂';
+      }else {
+       return '😍';
+      }
     }
 
     function createNewEmoji(replacement) {
@@ -49,4 +55,4 @@
     }    
   }
 
-})();
+})(); 
